@@ -1,7 +1,7 @@
 const formidable = require('formidable');
 const _ = require('lodash');
 const fs = require('fs');
-const Product = require('../models/product');
+const Product = require('../model/product');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
 // Get product by ID middleware

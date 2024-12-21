@@ -12,23 +12,12 @@ const {
 const { requireSignin, isAuth, isAdmin } = require('../controllers/auth');
 const { userById } = require('../controllers/user');
 
-router.get('/category/:categoryId', read);
-router.post('/category/create/:userId', requireSignin, isAuth, isAdmin, create);
-router.put(
-  '/category/:categoryId/:userId',
-  requireSignin,
-  isAuth,
-  isAdmin,
-  update
-);
-router.delete(
-  '/category/:categoryId/:userId',
-  requireSignin,
-  isAuth,
-  isAdmin,
-  remove
-);
-router.get('/categories', list);
+router.get('/category/:categoryId', read);               // GET a category by ID
+router.post('/category/create/:userId', requireSignin, isAuth, isAdmin, create);  // POST to create category
+router.put('/category/:categoryId/:userId', requireSignin, isAuth, isAdmin, update); // PUT to update category
+router.delete('/category/:categoryId/:userId', requireSignin, isAuth, isAdmin, remove); // DELETE category
+router.get('/categories', list); // GET all categories
+
 
 router.param('categoryId', categoryById);
 router.param('userId', userById);
